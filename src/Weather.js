@@ -9,7 +9,6 @@ export default function Weather(props) {
   let [humidity, setHumidity] = useState(null);
   let [wind, setWind] = useState(null);
   let [iconID, setIcon] = useState(null);
-  let [cityName, setCityName] = useState(null);
 
   function displayWeather(response) {
     setTemperature(response.data.main.temp);
@@ -17,7 +16,6 @@ export default function Weather(props) {
     setHumidity(response.data.main.humidity);
     setWind(response.data.wind.speed);
     setIcon(response.data.weather[0].icon);
-    setCityName(response.data.name);
   }
 
   if (props.city !== null && temperature === null) {
@@ -32,8 +30,6 @@ export default function Weather(props) {
     let imgURL = `http://openweathermap.org/img/wn/${iconID}@2x.png`;
     return (
       <div className="Weather">
-        <h2>Weather in {cityName}:</h2>
-
         <ul>
           <li>
             <img src={imgURL} alt="test" width="42" />
