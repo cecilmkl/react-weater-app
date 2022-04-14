@@ -4,16 +4,15 @@ import Search from "./Search";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Weather App</h1>
-        <Search />
-        <footer>
-          <a href="https://github.com/cecilmkl/react-weater-app">
-            Open-source code
-          </a>{" "}
-          by Cecilie K.
-        </footer>
-      </header>
+      <h1>Weather App</h1>
+      <Search />
+      <br />
+      <footer>
+        <a href="https://github.com/cecilmkl/react-weater-app">
+          Open-source code
+        </a>{" "}
+        by Cecilie K.
+      </footer>
     </div>
   );
 }
