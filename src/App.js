@@ -2,6 +2,7 @@ import "./App.css";
 import Search from "./Search";
 
 function App() {
+  console.log("Restarting");
   return (
     <div className="App">
       <div className="container">
