@@ -1,6 +1,4 @@
 .App {
-  /* text-align: left; */
-  /* margin-left: 30px; */
   margin: 30px auto;
   color: #212529;
   font-family: sans-serif;
@@ -8,7 +6,7 @@
 }
 
 .App a {
-  color: #61dafb;
+  color: #ec6e4c;
 }
 
 .App footer {
