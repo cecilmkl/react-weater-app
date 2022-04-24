@@ -1,88 +1,61 @@
 import React, { useState } from "react";
 import Weather from "./Weather";
 
-export default function Search() {
-  let [city, setCity] = useState(null);
-  let [weatherCity, setWeatherCity] = useState(null);
-  //weatherCity to ensure Weather is only properly called upon submit
+export default function Search(props) {
+  //const [ready, setReady] = useState(false);
+  //let [city, setCity] = useState(null);
+  let city = ""; // not using state to avoid calling Weather when letters are added
+  let [weatherCity, setWeatherCity] = useState({ ready: false });
 
-  function handleSearch(event) {
+  function handleSubmit(event) {
     event.preventDefault();
-    setWeatherCity(city.trim());
+    //console.log(ready);
+    //setReady(true);
+    setWeatherCity({
+      city: city,
+      ready: true,
+    });
   }
   function updateCity(event) {
-    if (event.target.value.length > 0) {
-      setCity(event.target.value);
+    console.log(event.target.value.trim());
+    // called when adding a letter in the form
+    if (event.target.value.trim().length > 0) {
+      city = event.target.value.trim();
     } else {
       // to ensure the data disappear when erased in form
-      setCity(null);
-      setWeatherCity(null);
+      city = "";
     }
   }
-  console.log("Search called");
-  if (weatherCity) {
-    console.log("Weather called");
-    return (
-      <div className="Search">
-        {/* <form onSubmit={handleSearch}>
-          <input
-            type="search"
-            placeholder="Enter a city..."
-            onChange={updateCity}
-            className="form-control"
-          />
-          <input type="submit" value="Search" className="btn btn-primary" />
-        </form> */}
-        <form onSubmit={handleSearch}>
-          <div className="input-group">
-            <input
-              type="search"
-              className="form-control"
-              placeholder="Enter a city"
-              onChange={updateCity}
-              autoFocus="on"
-            />
-            <button className="btn btn-outline-secondary" type="submit">
-              Search
-            </button>
-            <button className="btn btn-outline-secondary" type="submit">
-              Current
-            </button>
-          </div>
-        </form>
+  console.log(`CITY: ${city}`);
 
-        <Weather city={weatherCity} />
-      </div>
-    );
+  if (!weatherCity.ready) {
+    city = props.defaultCity;
   } else {
-    return (
-      <div className="Search">
-        {/* <form onSubmit={handleSearch}>
+    city = weatherCity.city;
+  }
+
+  console.log(`Weather for ${city} called from Search`);
+  return (
+    <div className="Search">
+      <form onSubmit={handleSubmit}>
+        <div className="input-group">
           <input
             type="search"
-            placeholder="Enter a city..."
+            className="form-control"
+            placeholder="Enter a city"
             onChange={updateCity}
+            autoFocus="on"
           />
-          <input type="submit" value="Search" />
-        </form> */}
-        <form onSubmit={handleSearch}>
-          <div className="input-group">
-            <input
-              type="search"
-              className="form-control"
-              placeholder="Enter a city"
-              onChange={updateCity}
-              autoFocus="on"
-            />
-            <button className="btn btn-outline-secondary" type="submit">
-              Search
-            </button>
-            <button className="btn btn-outline-secondary" type="submit">
-              Current
-            </button>
-          </div>
-        </form>
-      </div>
-    );
-  }
+          <button className="btn btn-outline-secondary" type="submit">
+            Search
+          </button>
+          <button className="btn btn-outline-secondary" type="submit">
+            Current
+          </button>
+        </div>
+      </form>
+
+      <Weather city={city} />
+    </div>
+  );
 }

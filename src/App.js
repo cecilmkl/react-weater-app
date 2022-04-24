@@ -6,8 +6,7 @@ function App() {
     <div className="App">
       <div className="container">
         <h1>Weather App</h1>
-        <Search />
-        <br />
+        <Search defaultCity="London" />
         <footer>
           <a
             href="https://github.com/cecilmkl/react-weater-app"
