@@ -25,7 +25,7 @@ export default function Weather(props) {
     console.log(`Weather element called with city: ${props.city}`);
 
     // supposed to happen ONCE
-    let apiKey = "f82fa348ac5be4c0a63ee7d2f60d4443";
+    const apiKey = "f82fa348ac5be4c0a63ee7d2f60d4443";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.city}&units=metric&appid=${apiKey}`;
     console.log(apiUrl);
     axios.get(apiUrl).then(displayWeather);
@@ -45,9 +45,17 @@ export default function Weather(props) {
         </ul>
         <div className="row">
           <div className="col-6">
-            <img src={imgURL} alt="weather icon" className="weather-icon" />
-            <span className="temperature">{Math.round(temperature)}</span>{" "}
-            <span className="unit">°C</span>
+            <div className="clearfix">
+              <img
+                src={imgURL}
+                alt="weather icon"
+                className="float-left weather-icon"
+              />
+              <div className="float-left">
+                <span className="temperature">{Math.round(temperature)}</span>{" "}
+                <span className="unit">°C</span>
+              </div>
+            </div>
           </div>
           <div className="col-6">
             <ul>

@@ -33,6 +33,11 @@
 .Weather .temperature {
   font-weight: bold;
   font-size: 64px;
+  line-height: 64px;
+}
+
+.Weather .float-left {
+  float: left;
 }
 
 .Weather .unit {
