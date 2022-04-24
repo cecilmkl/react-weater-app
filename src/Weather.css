@@ -30,7 +30,8 @@
   display: inline-block;
 }
 
-.Weather .temperature {
+.Weather .temp {
+  /*move to own css file later?*/
   font-weight: bold;
   font-size: 64px;
   line-height: 64px;
