@@ -8,7 +8,7 @@ export default function Search() {
 
   function handleSearch(event) {
     event.preventDefault();
-    setWeatherCity(city);
+    setWeatherCity(city.trim());
   }
   function updateCity(event) {
     if (event.target.value.length > 0) {
@@ -19,30 +19,68 @@ export default function Search() {
       setWeatherCity(null);
     }
   }
+  console.log("Search called");
   if (weatherCity) {
+    console.log("Weather called");
     return (
-      <div>
-        <form onSubmit={handleSearch}>
+      <div className="Search">
+        {/* <form onSubmit={handleSearch}>
           <input
             type="search"
             placeholder="Enter a city..."
             onChange={updateCity}
+            className="form-control"
           />
-          <input type="submit" value="Search" />
+          <input type="submit" value="Search" className="btn btn-primary" />
+        </form> */}
+        <form onSubmit={handleSearch}>
+          <div className="input-group">
+            <input
+              type="search"
+              className="form-control"
+              placeholder="Enter a city"
+              onChange={updateCity}
+              autoFocus="on"
+            />
+            <button className="btn btn-outline-secondary" type="submit">
+              Search
+            </button>
+            <button className="btn btn-outline-secondary" type="submit">
+              Current
+            </button>
+          </div>
         </form>
+
         <Weather city={weatherCity} />
       </div>
     );
   } else {
     return (
-      <div>
-        <form onSubmit={handleSearch}>
+      <div className="Search">
+        {/* <form onSubmit={handleSearch}>
           <input
             type="search"
             placeholder="Enter a city..."
             onChange={updateCity}
           />
           <input type="submit" value="Search" />
+        </form> */}
+        <form onSubmit={handleSearch}>
+          <div className="input-group">
+            <input
+              type="search"
+              className="form-control"
+              placeholder="Enter a city"
+              onChange={updateCity}
+              autoFocus="on"
+            />
+            <button className="btn btn-outline-secondary" type="submit">
+              Search
+            </button>
+            <button className="btn btn-outline-secondary" type="submit">
+              Current
+            </button>
+          </div>
         </form>
       </div>
     );
