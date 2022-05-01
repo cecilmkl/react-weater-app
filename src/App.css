@@ -1,18 +1,20 @@
 .App {
-  margin: 30px auto;
-  color: #212529;
-  font-family: sans-serif;
-  max-width: 600px;
+	margin: 30px auto;
+	color: #212529;
+	font-family: sans-serif;
+	max-width: 600px;
 }
 
 .App a {
-  color: #ec6e4c;
+	color: #ec6e4c;
+	text-decoration: none;
 }
 
 .App footer {
-  font-size: 12px;
-  text-align: left;
-  line-height: 15px;
-  margin: 0;
-  padding: 0;
+	font-size: 12px;
+	text-align: left;
+	line-height: 15px;
+	margin: 5px;
+	padding: 0;
+	text-align: center;
 }

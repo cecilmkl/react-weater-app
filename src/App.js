@@ -2,11 +2,9 @@ import "./App.css";
 import Search from "./Search";
 
 function App() {
-	console.log("Restarting");
 	return (
 		<div className="App">
 			<div className="container">
-				<h1>Weather App</h1>
 				<Search defaultCity="London" />
 
 				<footer>
@@ -17,8 +15,8 @@ function App() {
 						rel="noreferrer"
 					>
 						Cecilie K.
-					</a>
-					and is
+					</a>{" "}
+					and is{" "}
 					<a
 						href="https://github.com/cecilmkl/react-weater-app"
 						target="_blank"
@@ -32,7 +30,7 @@ function App() {
 						target="_blank"
 						rel="noreferrer"
 					>
-						hosted on Netlify
+						hosted on Netlify.
 					</a>
 				</footer>
 			</div>
