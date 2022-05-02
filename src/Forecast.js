@@ -3,7 +3,11 @@ import ForecastDay from "./ForecastDay";
 import axios from "axios";
 import "./Forecast.css";
 
+let count = 0;
+
 export default function Forecast(props) {
+	count++;
+	console.log("Called forecast element" + count);
 	let [loaded, setLoaded] = useState(false);
 	let [forecast, setForecast] = useState(null);
 

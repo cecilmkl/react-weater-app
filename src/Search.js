@@ -15,6 +15,11 @@ export default function Search(props) {
 	}, [weatherData]);
 
 	function displayWeather(response) {
+		let rain = 0;
+		if (response.data.hasOwnProperty("rain")) {
+			rain = response.data.rain["1h"];
+		}
+
 		setWeatherData({
 			city: response.data.name,
 			coord: response.data.coord,
@@ -24,6 +29,7 @@ export default function Search(props) {
 			humidity: response.data.main.humidity,
 			description: response.data.weather[0].description,
 			iconID: response.data.weather[0].icon,
+			rain: rain,
 			ready: true,
 		});
 	}
@@ -45,8 +51,6 @@ export default function Search(props) {
 	}
 
 	if (weatherData.ready) {
-		// console.log(`Weather data for city ${city}:`);
-		// console.log(weatherData);
 		return (
 			<div className="Search">
 				<form onSubmit={handleSubmit}>

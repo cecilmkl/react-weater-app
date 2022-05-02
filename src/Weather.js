@@ -3,6 +3,7 @@ import FormattedDate from "./FormattedDate";
 import "./Weather.css";
 import WeatherIcon from "./WeatherIcon";
 import Temperature from "./Temperature";
+import Precipitation from "./Precipitation";
 
 export default function Weather(props) {
 	return (
@@ -31,7 +32,7 @@ export default function Weather(props) {
 					<ul>
 						<li>Humidity: {props.data.humidity} %</li>
 						<li>Wind: {props.data.wind} m/s</li>
-						<li>Precipitation: </li>
+						<Precipitation rain={props.data.rain} />
 					</ul>
 				</div>
 			</div>
