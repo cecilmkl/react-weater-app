@@ -1,6 +1,4 @@
 .Weather {
-	/* padding: 16px;
-	margin: 20px auto 0px auto; */
 	color: rgb(135, 135, 135);
 	padding: 12px;
 }
@@ -30,7 +28,6 @@
 }
 
 .Weather .temp {
-	/*move to own css file later?*/
 	font-weight: bold;
 	font-size: 64px;
 	line-height: 64px;

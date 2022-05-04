@@ -1,18 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Weather from "./Weather";
 import Forecast from "./Forecast";
 import axios from "axios";
 import "./Search.css";
-let counter = 0;
 
 export default function Search(props) {
 	let [weatherData, setWeatherData] = useState({ ready: false });
-	let [city, setCity] = useState(props.defaultCity);
-
-	useEffect(() => {
-		// how does this work?
-		weatherData.ready = true;
-	}, [weatherData]);
+	let city = props.defaultCity;
 
 	function displayWeather(response) {
 		let rain = 0;
@@ -35,16 +29,14 @@ export default function Search(props) {
 	}
 
 	function handleSubmit(event) {
-		event.preventDefault(); // at searched city
+		event.preventDefault();
 		search();
 	}
 	function handleUpdateCity(event) {
-		setCity(event.target.value.trim());
+		city = event.target.value.trim();
 	}
 
 	function search() {
-		counter++;
-		console.log(`Call number ${counter} to API. This time for ${city}`);
 		const apiKey = "f82fa348ac5be4c0a63ee7d2f60d4443";
 		let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
 		axios.get(apiUrl).then(displayWeather);
