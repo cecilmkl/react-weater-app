@@ -57,9 +57,9 @@ export default function Search(props) {
 						<button className="btn btn-outline-secondary" type="submit">
 							Search
 						</button>
-						<button className="btn btn-outline-secondary" type="submit">
+						{/* <button className="btn btn-outline-secondary" type="submit">
 							Current
-						</button>
+						</button> */}
 					</div>
 				</form>
 
